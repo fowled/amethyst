@@ -14,4 +14,4 @@ You can now visit http://localhost:3000 ;)
 ![image](https://user-images.githubusercontent.com/37367577/129057962-7259f1d0-2504-4626-b7c7-6d5e8fcf56ca.png)
 
 ## View website
-The website is available at https://amethyst.mazz.xyz/
+The website will be available at https://amethyst.mazz.xyz/
