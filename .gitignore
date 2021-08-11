@@ -1,0 +1,4 @@
+.env
+database/
+others/
+node_modules/
