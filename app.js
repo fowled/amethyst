@@ -15,7 +15,7 @@ const port = 3000;
 dotenv.config();
 initDatabase();
 
-const folders = ["JS", "utils", "models", "CSS", "views", "others", "assets"];
+const folders = ["JS", "utils", "models", "CSS", "views", "assets"];
 
 folders.forEach(folder => {
     app.use(`/${folder}/`, express.static(path.resolve(`./${folder}/`)));

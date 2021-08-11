@@ -17,7 +17,7 @@ $input-background-color: $beige-lighter;
 $input-border-color: transparent;
 $input-shadow: none;
 
-@import "../others/bulma/bulma.sass";
+@import "../node_modules/bulma/bulma.sass";
 
 body {
     text-align: center;
