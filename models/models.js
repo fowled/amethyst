@@ -1,11 +1,13 @@
 import * as logger from "../utils/Logger.js";
-import Sequelize from "sequelize";
+import { Sequelize } from "sequelize";
+import path from "path";
 
 export const seq = new Sequelize("database", "username", "password", {
     host: "localhost",
     dialect: "sqlite",
+    dialectModulePath: path.resolve("./node_modules/sqlite3/sqlite3.js"),
     logging: false,
-    storage: `${process.cwd()}/database/db.sqlite`,
+    storage: path.resolve("./database/db.sqlite"),
 });
 
 export async function initDatabase() {

@@ -8,6 +8,6 @@ export async function getURL(name, res, next) {
         const url = link.get("url");
         return res.redirect(url);
     } else {
-        return res.render("home", { layout: "main", error: 404, color: "is-danger" });
+        return res.render("home.hbs", { layout: "main.hbs", error: 404, color: "is-danger" });
     }
 }
