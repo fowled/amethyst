@@ -45,16 +45,15 @@ app.get(["/index.js", "/"], async (req, res) => {
 });
 
 app.get("/:id/", async (req, res, next) => {
-    getURL(req.params.id, res);
+    getURL(encodeURIComponent(req.params.id), res);
 });
 
 app.post(["*"], async (req, res, next) => {
     if (req.body.password !== process.env.PASSWORD) {
         return res.render("home.hbs", { layout: "main.hbs", error: 403, color: "is-warning" });
     } else {
-        return postURL(req.body.name, req.body.url, res, req);
+        return postURL(encodeURIComponent(req.body.name), req.body.url, res, req);
     }
-
 });
 
 app.listen(port, () => {
