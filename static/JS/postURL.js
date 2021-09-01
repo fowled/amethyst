@@ -10,8 +10,8 @@ export async function postURL(name, url, res, req) {
         });
 
         let newLink = `${req.protocol}://${req.get("host")}/${name}`;
-        return res.render("home.hbs", { layout: "main.hbs", error: 200, url: newLink, color: "is-success" });
+        return res.render("home", { layout: "main", error: 200, url: newLink, color: "is-success" });
     } catch (err) {
-        return res.render("home.hbs", { layout: "main.hbs", error: 500, color: "is-danger" });
+        return res.render("home", { layout: "main", error: 500, color: "is-danger" });
     }
 }

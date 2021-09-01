@@ -1,4 +1,6 @@
 .env
 database/
-others/
 node_modules/
+server.cert
+server.key
+static/.well-known
