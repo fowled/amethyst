@@ -1,2 +1,2 @@
-fonts/** linguist-vendored
-CSS/* linguist-vendored
+static/fonts/** linguist-vendored
+static/CSS/* linguist-vendored
