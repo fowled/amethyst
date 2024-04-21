@@ -181,8 +181,8 @@ const Home: NextPage = () => {
 				</div>
 
 				<div className="relative my-auto">
-					<div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-						<div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
+					<div className="px-1.5 mx-auto max-w-7xl sm:px-6 lg:px-8">
+						<div className="relative overflow-hidden shadow-xl rounded-2xl">
 							<div className="absolute inset-0">
 								<Image
 									className="object-cover w-full h-full blur"
@@ -194,8 +194,8 @@ const Home: NextPage = () => {
 								<div className="absolute inset-0 bg-indigo-700 mix-blend-multiply"></div>
 							</div>
 
-							<div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-								<h1 className="text-4xl font-extrabold tracking-tight text-center sm:text-5xl lg:text-6xl">
+							<div className="relative px-4 py-20 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+								<h1 className="text-[1.7rem] leading-8 font-extrabold tracking-tight text-center sm:text-5xl lg:text-6xl">
 									<span className="block text-white">
 										What if shortening links
 									</span>
@@ -205,10 +205,10 @@ const Home: NextPage = () => {
 									</span>
 								</h1>
 
-								<p className="max-w-lg mx-auto mt-6 text-xl text-center text-indigo-200 sm:max-w-3xl">
-									Here at Amethyst, we believe sharing long links can sometimes
-									be unprofessional. Paste your long-query-string-filled URL
-									below and get a clean, short one.
+								<p className="max-w-lg mx-auto mt-6 text-base text-center text-indigo-200 sm:text-xl sm:max-w-3xl">
+									Here at Amethyst, we believe sharing long links can often be
+									unprofessional. Paste your long-query-string-filled URL below
+									and get a clean, short one.
 								</p>
 
 								<div className="max-w-md mx-auto mt-12">
@@ -246,7 +246,7 @@ const Home: NextPage = () => {
 				<div className="relative px-4 py-12 sm:px-6 lg:px-14">
 					<div className="mx-auto text-lg max-w-prose">
 						<h1>
-							<span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
+							<span className="block mt-2 text-2xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
 								Introducing Amethyst ✨
 							</span>
 						</h1>
@@ -254,7 +254,7 @@ const Home: NextPage = () => {
 
 					<div
 						id="economy"
-						className="mx-auto mt-6 prose prose-lg text-gray-500 prose-indigo"
+						className="mx-auto mt-6 prose text-gray-500 sm:prose-lg prose-indigo"
 					>
 						<p>
 							Our technology simplifies URL shortening for cleaner, more
@@ -264,7 +264,7 @@ const Home: NextPage = () => {
 							and reduces URL length, making sharing easier than ever.
 						</p>
 
-						<h2>Why choose Amethyst?</h2>
+						<h3>Why choose Amethyst?</h3>
 
 						<ul role="list">
 							<li>
@@ -283,7 +283,7 @@ const Home: NextPage = () => {
 							</li>
 						</ul>
 
-						<h2>Pricing</h2>
+						<h3>Pricing</h3>
 
 						<p>
 							Choose the plan that best fits your needs. Our basic plan offers
@@ -294,7 +294,7 @@ const Home: NextPage = () => {
 							enterprises.
 						</p>
 
-						<h2>Benefits of clean URLs</h2>
+						<h3>Benefits of clean URLs</h3>
 
 						<ul role="list">
 							<li>
@@ -313,7 +313,7 @@ const Home: NextPage = () => {
 							</li>
 						</ul>
 
-						<h2>Have any questions?</h2>
+						<h3>Have any questions?</h3>
 
 						<p>
 							Our dedicated team is ready to assist you with any inquiries about
@@ -334,7 +334,7 @@ const Home: NextPage = () => {
 						aria-label="Footer"
 					>
 						{footer.main.map((item) => (
-							<div key={item.label} className="px-5 py-2">
+							<div key={item.label} className="px-3 py-2 sm:px-5">
 								<a
 									href={item.link}
 									className="text-base text-gray-500 hover:text-gray-900"
@@ -358,7 +358,8 @@ const Home: NextPage = () => {
 					</div>
 
 					<p className="mt-8 text-base text-center text-gray-400">
-						&copy; 2022, made by @fowled. All rights reserved.
+						&copy; {new Date().getFullYear()}, made by @fowled. All rights
+						reserved.
 					</p>
 				</footer>
 
