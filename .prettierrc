@@ -1,0 +1,7 @@
+{
+	"useTabs": true,
+	"singleQuote": false,
+	"bracketSpacing": true,
+	"semicolons": true,
+	"arrowFunctionParenthesis": "avoid"
+}

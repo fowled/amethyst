@@ -1,0 +1,8 @@
+/node_modules
+/.next/
+/build
+.pnpm-debug.log*
+.env*.local
+database/
+.vercel
+.env

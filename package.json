@@ -1,0 +1,36 @@
+{
+	"name": "amethyst",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "prisma generate && next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@headlessui/react": "latest",
+		"@prisma/client": "latest",
+		"@tailwindcss/typography": "latest",
+		"@typescript-eslint/eslint-plugin": "^7.7.0",
+		"@typescript-eslint/parser": "^7.7.0",
+		"@vercel/postgres": "^0.8.0",
+		"autoprefixer": "latest",
+		"next": "latest",
+		"postcss": "latest",
+		"prisma": "latest",
+		"react": "latest",
+		"react-dom": "latest",
+		"react-feather": "latest",
+		"sharp": "latest",
+		"tailwindcss": "latest"
+	},
+	"devDependencies": {
+		"@types/node": "latest",
+		"@types/react": "latest",
+		"@types/react-dom": "latest",
+		"eslint": "latest",
+		"eslint-config-next": "latest",
+		"typescript": "latest"
+	}
+}
