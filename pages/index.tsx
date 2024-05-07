@@ -230,9 +230,9 @@ const Home: NextPage = () => {
 												required
 												type="text"
 												autoComplete="off"
-												className="block w-full px-5 py-3 text-base text-white placeholder-gray-400 bg-black border border-transparent rounded-md shadow-sm ring-indigo-600 ring-2 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
+												className="block w-auto px-5 py-3 text-base text-white placeholder-gray-400 bg-black border border-transparent rounded-md shadow-sm ring-indigo-600 ring-2 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
 												name="url"
-												placeholder="link goes here"
+												placeholder="URL to shorten"
 											/>
 
 											<input
@@ -243,7 +243,7 @@ const Home: NextPage = () => {
 												maxLength={10}
 												className="block w-full px-5 py-3 text-base text-white placeholder-gray-400 bg-black border border-transparent rounded-md shadow-sm ring-indigo-600 ring-2 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
 												name="path"
-												placeholder="(custom /path)"
+												placeholder="/path"
 											/>
 										</div>
 
