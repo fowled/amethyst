@@ -69,18 +69,27 @@ const Home: NextPage = () => {
 		url: string | null;
 	});
 
-	const [formData, setFormData] = useState<string>();
+	const [formData, setFormData] = useState({ url: "", path: "" });
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setFormData(event.target.value);
+		switch (event.target.name) {
+			case "path":
+				setFormData({ ...formData, path: event.target.value });
+				break;
+
+			default:
+				setFormData({ ...formData, url: event.target.value });
+				break;
+		}
 	};
 
 	const saveChanges = async (event: React.MouseEvent<HTMLFormElement>) => {
 		event.preventDefault();
+		event.currentTarget.reset();
 
 		const res = await fetch("api/create", {
 			method: "POST",
-			body: JSON.stringify({ url: formData }),
+			body: JSON.stringify({ url: formData.url, path: formData.path }),
 			headers: {
 				"Content-type": "application/json; charset=UTF-8",
 			},
@@ -93,8 +102,8 @@ const Home: NextPage = () => {
 					color: "rgb(220 38 38)",
 					icon: <AlertCircle />,
 					iconColor: "rgb(153 27 27)",
-					text: "Uh oh... something bad happened.",
-					buttonText: "Retry",
+					text: "This custom URL isn't available.",
+					buttonText: "Try another",
 					url: null,
 				});
 				break;
@@ -118,8 +127,6 @@ const Home: NextPage = () => {
 
 		if (banner.url) {
 			return navigator.clipboard.writeText(banner.url as string);
-		} else {
-			return Router.push("/");
 		}
 	};
 
@@ -130,7 +137,7 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/logo.png" />
 				<meta
 					name="description"
-					content="Combining moderation, games, economy and fun commands, you won't need any other Discord bot."
+					content="Sleek URL shortener for the 21st century"
 				/>
 				<meta property="og:url" content="https://link.fowled.dev" />
 				<meta property="og:site_name" content="Amethyst" />
@@ -138,7 +145,7 @@ const Home: NextPage = () => {
 				<meta property="og:title" content="Amethyst - URL Shortener" />
 				<meta
 					property="og:description"
-					content="Sleek URL shortener for cool guys."
+					content="Sleek URL shortener for the 21st century"
 				/>
 				<meta property="og:image" content="/logo.png" />
 				<meta name="theme-color" content="#a233ff" />
@@ -211,31 +218,41 @@ const Home: NextPage = () => {
 									and get a clean, short one.
 								</p>
 
-								<div className="max-w-md mx-auto mt-12">
+								<div className="max-w-sm mx-auto mt-12">
 									<form
 										onSubmit={saveChanges}
-										className="mt-12 sm:mx-auto sm:max-w-lg sm:flex"
+										className="flex-col items-center justify-center mt-12 space-y-5 sm:mx-auto sm:max-w-lg sm:flex"
 									>
-										<div className="flex-1 min-w-0">
+										<div className="flex flex-row flex-1 min-w-0 space-x-4">
 											<input
-												pattern="(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?\/[a-zA-Z0-9]{2,}|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?)|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})?"
-												required
-												autoComplete="off"
 												onChange={handleChange}
-												className="block w-full px-5 py-3 text-base text-gray-900 placeholder-gray-500 border border-transparent rounded-md shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
-												title="enter a valid URL"
-												placeholder="Enter URL"
+												pattern="^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+\/?[a-zA-Z0-9-_\/]*(\?[a-zA-Z0-9-_&=]*)?$"
+												required
+												type="text"
+												autoComplete="off"
+												className="block w-full px-5 py-3 text-base text-white placeholder-gray-400 bg-black border border-transparent rounded-md shadow-sm ring-indigo-600 ring-2 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
+												name="url"
+												placeholder="link goes here"
+											/>
+
+											<input
+												onChange={handleChange}
+												autoComplete="off"
+												type="text"
+												minLength={3}
+												maxLength={10}
+												className="block w-full px-5 py-3 text-base text-white placeholder-gray-400 bg-black border border-transparent rounded-md shadow-sm ring-indigo-600 ring-2 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
+												name="path"
+												placeholder="(custom /path)"
 											/>
 										</div>
 
-										<div className="mt-4 sm:mt-0 sm:ml-3">
-											<button
-												type="submit"
-												className="block w-full px-5 py-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-5"
-											>
-												Shorten it!
-											</button>
-										</div>
+										<button
+											type="submit"
+											className="block w-full px-5 py-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-5"
+										>
+											Shorten it!
+										</button>
 									</form>
 								</div>
 							</div>

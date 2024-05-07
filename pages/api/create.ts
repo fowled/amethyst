@@ -7,16 +7,21 @@ export default async function handler(
 	res: NextApiResponse
 ) {
 	try {
-		const generatedLinkName = await generateRandomName();
-		const url: string = !req.body.url.startsWith("http")
-			? `http://${req.body.url}`
-			: req.body.url;
+		let { url, path } = req.body;
 
-		await prisma.link.create({ data: { name: generatedLinkName, url } });
+		if (!path) {
+			path = await generateRandomName();
+		}
+
+		if (!url.startsWith("http")) {
+			url = `http://${req.body.url}`;
+		}
+
+		await prisma.link.create({ data: { name: path, url } });
 
 		return void res
 			.status(202)
-			.send({ url: `${process.env.ENDPOINT}/${generatedLinkName}` });
+			.send({ url: `${process.env.ENDPOINT}/${path}` });
 	} catch (err) {
 		console.log(err);
 
