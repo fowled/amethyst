@@ -223,7 +223,7 @@ const Home: NextPage = () => {
 										onSubmit={saveChanges}
 										className="flex-col items-center justify-center mt-12 space-y-5 sm:mx-auto sm:max-w-lg sm:flex"
 									>
-										<div className="flex flex-row flex-1 min-w-0 space-x-4">
+										<div className="flex flex-col flex-1 min-w-0 space-y-4 sm:space-y-0 sm:space-x-4 md:flex-row">
 											<input
 												onChange={handleChange}
 												pattern="^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+\/?[a-zA-Z0-9-_\/]*(\?[a-zA-Z0-9-_&=]*)?$"
